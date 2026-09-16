@@ -1,0 +1,27 @@
+LAB 3 – ARCHITECTURE SELECTION & WRITTEN JUSTIFICATION
+
+Self-Service Coffee Kiosk System
+
+Architecture Selection
+
+We chose a Layered Architecture for the Self-Service Coffee Kiosk System.
+
+Architectural Choice and Reasons
+
+The system is organized into presentation, business, and data/hardware responsibilities. First, layered architecture provides clear separation of concerns: the Touch Screen UI handles customer interaction, the Order Manager handles ordering logic, and the Menu & Pricing DB stores menu and pricing information. This makes the design easier to understand, test, maintain, and modify. Second, the architecture fits the kiosk’s relatively focused workflow because the order-processing logic can communicate with payment, data storage, and receipt hardware through defined interfaces without exposing their internal implementation.
+
+Security Advantage
+
+Security can be improved by keeping payment processing behind a dedicated Payment Service component. The Order Manager sends payment requests through its defined interface instead of directly accessing payment details. This separation limits the parts of the system that need to interact with payment functionality and supports controlled access between components.
+
+Performance Benefit
+
+Layered separation allows frequently used menu and pricing data to be handled directly by the data component while the Order Manager coordinates the order flow. Keeping UI, business logic, and data access separate also reduces unnecessary processing in the touch-screen layer and makes individual components easier to optimize without changing the complete system.
+
+Component Identification
+
+The five components used in the component model are Touch Screen UI, Order Manager, Payment Service, Menu & Pricing DB, and Receipt Printer. The main interactions include order selection/status, payment processing, menu and price queries, and receipt data transfer.
+
+Conclusion
+
+The selected architecture satisfies the scenario’s functional requirements while providing modularity, controlled component interactions, and clear separation of responsibilities.
